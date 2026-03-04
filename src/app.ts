@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
+import path from "path";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
@@ -16,7 +17,7 @@ import alertRoutes from "./routes/alerts.routes";
 import logRoutes from "./routes/logs.routes";
 import workflowRoutes from "./routes/workflows.routes";
 
-dotenv.config();
+dotenv.config({ path: path.resolve(__dirname, ".env") });
 
 // Validate environment variables
 const requiredEnvVars = ["JAVA_BACKEND_BASE_URL", "JWT_SECRET", "ALLOWED_ORIGINS"];
